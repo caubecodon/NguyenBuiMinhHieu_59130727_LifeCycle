@@ -1,0 +1,12 @@
+Câu 4:
+    - Các phương thức vòng đời lần lượt được gọi sau khi ấn phím Back: onPause() -> onStop() -> onDestroy()
+    - Các phương thức vòng đời lần lượt được gọi khi mở lại ứng dụng: onCreate() -> onStart() -> onResume()
+Câu 5:
+    - Các phương thức vòng đời được gọi khi người dùng ấn phím Home: onPause() -> onStop()
+    - Các phương thức vòng đời được gọi khi mở lại ứng dụng: onRestart() -> onStart() -> onResume()
+Câu 6: Cần lưu thông tin của ứng dụng để khôi phục lại trạng thái hiển thị của ứng dụng khi chạy lại ứng dụng thì cần phải thực
+hiện trong phương thức vòng đời onPause. Vì để lưu lại thông tin thì cần lưu trữ thông tin trước khi ứng dụng bị hệ thống hủy,
+mà trong các phương thức có trạng thái killable (onPause, onStop, onDestroy) thì chỉ có phương thức onPause chắc chắn được gọi
+trước khi ứng dụng bị hủy, còn phương thức onStop và onDestroy có thể gọi hoặc không gọi (khi ứng dụng đang ở trạng thái onPause
+mà bị hệ thống kill thì onStop và onDestroy sẽ không được gọi, khi ứng dụng đang ở trạng thái onStop mà bị hệ thống hủy thì
+onDestroy sẽ không được gọi).
